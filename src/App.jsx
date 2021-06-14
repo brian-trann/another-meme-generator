@@ -1,39 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import MainFFmpeg from './components/MainFFmpeg';
 import './App.css';
 
+/**
+ * 
+ * FLOW
+ * 
+ * 
+ * select file
+ * 
+ * if !jpg
+ * display first frame as jpg
+ * 
+ * if jpg... do other stuff? lol
+ * 
+ * 
+ * let user config ffmpeg settings?
+ * use HM to create output?
+ * if jpg-out exist:
+ *   show form
+ *   display text overlay onto gif
+ * 
+ * submit:
+ *   run new ffmpeg to make gif
+ * 
+ * Need to RESIZE GIF FIRST!!!!!! otherwise the formatting wont be right!
+ */
+
 function App() {
-  // Create the count state.
-  const [count, setCount] = useState(0);
-  // Create the counter (+1 every second).
-  useEffect(() => {
-    const timer = setTimeout(() => setCount(count + 1), 1000);
-    return () => clearTimeout(timer);
-  }, [count, setCount]);
-  // Return the App component.
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <p>
-          Page has been open for <code>{count}</code> seconds.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
-  );
+	return (
+		<div className='App'>
+			<h1>Let's make a gif</h1>
+			<MainFFmpeg />
+		</div>
+	);
 }
 
 export default App;
